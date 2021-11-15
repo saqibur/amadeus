@@ -90,4 +90,6 @@ def retrieve_temporary_file_link(
     filename:      str,
     file_location: str
 ) -> str:
-    return dbx_client.files_get_temporary_link(f"{file_location}{filename}").link
+    # HACK: Until I figure out how to do this with a starts_with, we're stuck
+    #       with this `.mp3` hack.
+    return dbx_client.files_get_temporary_link(f"{file_location}{filename}.mp3").link

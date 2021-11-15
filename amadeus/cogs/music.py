@@ -41,7 +41,7 @@ class Music(Cog):
 
     @command()
     async def sing(self, ctx: Context, maybe_song_name: str = None):
-        if ctx.voice_client is None:
+        if ctx.message.author.voice is None:
             await ctx.send("Please connect to a voice channel first.")
             return
 
@@ -57,11 +57,11 @@ class Music(Cog):
                 message: str = f"I choose --- `{random_song}`"
                 await ctx.channel.send(message)
                 await ctx.channel.send(f"Adding to queue: `{random_song}`")
-                await self.music_player.play(ctx, random_song)
+                await self.music_player.play(ctx, [random_song])
             case str(song_name):
                 if song_name in songs:
                     await ctx.channel.send(f"Adding to queue: `{song_name}`")
-                    await self.music_player.play(ctx, song_name)
+                    await self.music_player.play(ctx, [song_name])
                 else:
                     await ctx.channel.send(
                         f"Sorry, I don't know how to sing: `{song_name}`.\n" +
@@ -72,12 +72,28 @@ class Music(Cog):
 
     @command()
     async def next(self, ctx: Context):
-        if ctx.voice_client is None:
+        if ctx.message.author.voice is None:
             await ctx.send("Please connect to a voice channel first.")
             return
 
         await ctx.send("Skipping to next song")
         await self.music_player.next(ctx)
+
+
+    @command()
+    async def shuffle(self, ctx: Context):
+        if ctx.message.author.voice is None:
+            await ctx.send("Please connect to a voice channel first.")
+            return
+
+        songs: list[str] = fetch_filenames(
+            dbx_client=self.bot.dropbox_client,
+            file_directory=self.bot.configuration.dropbox_config.dir_music,
+            extension=False
+        )
+        await ctx.send("Shuffling all songs!")
+        await self.music_player.play(ctx, songs)
+
 
 
     @command()

@@ -55,6 +55,10 @@ random. If some matches are found, play the best match, and suggest the best
 Add a reminder system for the following: `1hr`, `6hr`, `tomorrow`,
 `day_after_tomorrow`, and `one_week`.
 
+### Multi-tasking
+To some extent the bot messes up multi-tasking, especially when dealing with
+dropbox. Need to fix that.
+
 ### Slap
 Implement the slap system
 
