@@ -1,0 +1,17 @@
+dropbox:
+  secret:      ''
+  dir_images:  '/dropbox_folder_name/'
+  dir_videos:  '/dropbox_folder_name/'
+  dir_music:   '/dropbox_folder_name/'
+  dir_sayings: '/dropbox_folder_name/'
+
+discord:
+  secret:              ''
+  command_prefix:      ''
+  dialogue_file_path:  'data/cleaned_amadeus_dialogue.csv'
+  description:         >
+                       'Amadeus is the name of a memory storage ~~and artificial
+                       intelligence~~ system. React to an image with :ama_save: and
+                       I'll save it to the dropbox.'
+  file_save_reaction:  'Example: 🧠'
+  file_saved_reaction: 'Example: 🗄️'

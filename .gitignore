@@ -3,3 +3,4 @@ dropbox.secret
 venv-amadeus
 __pycache__
 audio
+config.yaml
