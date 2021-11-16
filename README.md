@@ -39,35 +39,5 @@ python bot.py
 # If successful, you should see - "amadeus is back online!"
 ```
 
-
-## TODO
-### Add Logging
-As it stands, the bot doesn't deal with exceptions or errors gracefully. Further,
-debugging is painful on a server environment without proper logging, and error
-handling.
-
-### Song Searching
-Allow someone to search for a song, if no matches are found, play something at
-random. If some matches are found, play the best match, and suggest the best
-5 matches.
-
-### Reminder System
-Add a reminder system for the following: `1hr`, `6hr`, `tomorrow`,
-`day_after_tomorrow`, and `one_week`.
-
-### Multi-tasking
-To some extent the bot messes up multi-tasking, especially when dealing with
-dropbox. Need to fix that.
-
-### Slap
-Implement the slap system
-
-### Help Command
-Finish writing out the Help command cog.
-
-### Shutdown
-Shutdown the bot if called by owner.
-
-
 ## Additional Data
 Makise Kurisu Dialogue - https://www.kaggle.com/carlosacevedomorales/steins-gate
